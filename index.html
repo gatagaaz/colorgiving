@@ -6,41 +6,45 @@
   <style>
     html, body {
       margin: 0;
+      padding: 0;
       height: 100%;
+      width: 100%;
       overflow: hidden;
-      background-color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      background-color: white;
     }
 
-    #colorInput {
-      width: 200px;
-      height: 60px;
+    .color-button {
+      width: 150px;
+      height: 150px;
+      margin: 20px;
       border: none;
+      border-radius: 50%;
       cursor: pointer;
+      transition: transform 0.2s;
     }
 
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1.2em;
+    .color-button:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
   <h2>Choisis une couleur</h2>
-  <input type="color" id="colorInput" value="#ffffff">
-  <button onclick="applyColor()">Afficher en plein écran</button>
+  <div>
+    <button class="color-button" style="background-color: red;" onclick="applyColor('red')"></button>
+    <button class="color-button" style="background-color: orange;" onclick="applyColor('orange')"></button>
+    <button class="color-button" style="background-color: green;" onclick="applyColor('green')"></button>
+  </div>
 
   <script>
-    function applyColor() {
-      const color = document.getElementById("colorInput").value;
+    function applyColor(color) {
       document.body.style.backgroundColor = color;
       document.documentElement.requestFullscreen();
     }
   </script>
 </body>
 </html>
-
